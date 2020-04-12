@@ -1,6 +1,6 @@
 #define p 3.14
 
-float Perimetr(float r){
+float Perimetr(float r) {
   if (r <= 0) {
     return 1;
   }
