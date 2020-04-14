@@ -30,7 +30,7 @@ int main()
     } else {
         printf("Ошибка ввода фигуры! Доступные фигуры: circle");
         return 0;
-  }
+    }
     printf("%s(%d, %d, %0.2f)\n", name, x, y, r);
     printf("Площадь: %0.2f\n", S);
     printf("Периметр: %0.2f", P);
