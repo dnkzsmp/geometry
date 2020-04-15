@@ -13,4 +13,6 @@ build/Circle.o: src/Circle.cpp
 	g++ -Wall -Werror -c src/Circle.cpp -o build/Circle.o
 
 clean:
-	rm -rf build/*.o 
+	rm -rf build/*.o
+
+.PHONY: all clean
