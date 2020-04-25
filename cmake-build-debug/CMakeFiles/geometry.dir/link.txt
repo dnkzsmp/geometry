@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/geometry.dir/src/main.c.o CMakeFiles/geometry.dir/src/Circle.c.o CMakeFiles/geometry.dir/src/Figure.c.o CMakeFiles/geometry.dir/src/Intersection.c.o CMakeFiles/geometry.dir/test/test_intersection.c.o  -o geometry 
