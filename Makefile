@@ -1,18 +1,38 @@
-all: bin/prog
+CPPFLAGS = -Wall -Werror
+DIR_S = build/src
+DIR_T = build/test
+PROG = bin/prog
+TEST = bin/test
 
-bin/prog: build/main.o build/Circle.o build/Figure.o
-	g++ -Wall -Werror build/main.o build/Circle.o build/Figure.o -o bin/prog
+all: $(PROG) $(TEST)
 
-build/main.o: src/main.cpp
-	g++ -Wall -Werror -c src/main.cpp -o build/main.o
+$(PROG): $(DIR_S)/main.o $(DIR_S)/Circle.o $(DIR_S)/Figure.o $(DIR_S)/Intersection.o
+	gcc $(CPPFLAGS) $(DIR_S)/main.o $(DIR_S)/Intersection.o $(DIR_S)/Circle.o $(DIR_S)/Figure.o -o $(PROG)
 
-build/Figure.o: src/Figure.cpp
-	g++ -Wall -Werror -c src/Figure.cpp -o build/Figure.o
+$(DIR_S)/main.o: src/main.c
+	gcc $(CPPFLAGS) -c src/main.c -o $(DIR_S)/main.o
 
-build/Circle.o: src/Circle.cpp
-	g++ -Wall -Werror -c src/Circle.cpp -o build/Circle.o
+$(DIR_S)/Figure.o: src/Figure.c
+	gcc $(CPPFLAGS) -c src/Figure.c -o $(DIR_S)/Figure.o
+
+$(DIR_S)/Circle.o: src/Circle.c
+	gcc $(CPPFLAGS) -c src/Circle.c -o $(DIR_S)/Circle.o
+
+$(DIR_S)/Intersection.o: src/Intersection.c
+	gcc $(CPPFLAGS) -c src/Intersection.c -o $(DIR_S)/Intersection.c
+
+$(DIR_T)/main.o: test/main.c
+	gcc $(CPPFLAGS) -I thirdparty -c test/main.c -o $(DIR_T)/main.o
+
+$(DIR_T)/test_intersection.o: test/test_intersection.c
+	gcc $(CPPFLAGS) -I thirdparty -I src -c test/test_intersection.c -o $(DIR_T)/test_intersection.o
+
+$(TEST): $(DIR_T)/test_intersection.o $(DIR_T)/main.o
+	gcc $(CPPFLAGS) $(DIR_S)/Figure.o $(DIR_T)/test_intersection.o $(DIR_T)/main.o -o $(TEST)
 
 clean:
-	rm -rf build/*.o
+	rm -rf $(DIR_S)/*.o
+	rm -rf $(DIR_T)/*.o
+	rm -rf bin/*
 
 .PHONY: all clean
