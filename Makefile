@@ -19,7 +19,7 @@ $(DIR_S)/Circle.o: src/Circle.c
 	gcc $(CPPFLAGS) -c src/Circle.c -o $(DIR_S)/Circle.o
 
 $(DIR_S)/Intersection.o: src/Intersection.c
-	gcc $(CPPFLAGS) -c src/Intersection.c -o $(DIR_S)/Intersection.c
+	gcc $(CPPFLAGS) -c src/Intersection.c -o $(DIR_S)/Intersection.o
 
 $(DIR_T)/main.o: test/main.c
 	gcc $(CPPFLAGS) -I thirdparty -c test/main.c -o $(DIR_T)/main.o
@@ -28,7 +28,7 @@ $(DIR_T)/test_intersection.o: test/test_intersection.c
 	gcc $(CPPFLAGS) -I thirdparty -I src -c test/test_intersection.c -o $(DIR_T)/test_intersection.o
 
 $(TEST): $(DIR_T)/test_intersection.o $(DIR_T)/main.o
-	gcc $(CPPFLAGS) $(DIR_S)/Figure.o $(DIR_T)/test_intersection.o $(DIR_T)/main.o -o $(TEST)
+	gcc $(CPPFLAGS) $(DIR_S)/Figure.o $(DIR_S)/Intersection.o  $(DIR_T)/test_intersection.o $(DIR_T)/main.o -o $(TEST)
 
 clean:
 	rm -rf $(DIR_S)/*.o
