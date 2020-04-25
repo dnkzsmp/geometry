@@ -31,5 +31,6 @@
 *.out
 *.app
 prog
-main
+test
+/cmake-build-debug/
 *.swp
