@@ -7,7 +7,7 @@ TEST = bin/test
 all: $(PROG) $(TEST)
 
 $(PROG): $(DIR_S)/main.o $(DIR_S)/Circle.o $(DIR_S)/Figure.o $(DIR_S)/Intersection.o
-	gcc $(CPPFLAGS) $(DIR_S)/main.o $(DIR_S)/Intersection.o $(DIR_S)/Circle.o $(DIR_S)/Figure.o -o $(PROG)
+	gcc $(CPPFLAGS) $(DIR_S)/main.o $(DIR_S)/Intersection.o $(DIR_S)/Circle.o $(DIR_S)/Figure.o -o $(PROG) -lm
 
 $(DIR_S)/main.o: src/main.c
 	gcc $(CPPFLAGS) -c src/main.c -o $(DIR_S)/main.o
@@ -28,7 +28,7 @@ $(DIR_T)/test_intersection.o: test/test_intersection.c
 	gcc $(CPPFLAGS) -I thirdparty -I src -c test/test_intersection.c -o $(DIR_T)/test_intersection.o
 
 $(TEST): $(DIR_T)/test_intersection.o $(DIR_T)/main.o
-	gcc $(CPPFLAGS) $(DIR_S)/Figure.o $(DIR_S)/Intersection.o  $(DIR_T)/test_intersection.o $(DIR_T)/main.o -o $(TEST)
+	gcc $(CPPFLAGS) $(DIR_S)/Figure.o $(DIR_S)/Intersection.o $(DIR_S)/Circle.o  $(DIR_T)/test_intersection.o $(DIR_T)/main.o -o $(TEST) -lm
 
 clean:
 	rm -rf $(DIR_S)/*.o
