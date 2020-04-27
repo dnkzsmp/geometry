@@ -30,8 +30,8 @@
 *.exe
 *.out
 *.app
-prog
-test
+bin/prog
+bin/test
 /.idea
 /cmake-build-debug
 *.swp
