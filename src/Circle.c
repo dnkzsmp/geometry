@@ -1,6 +1,4 @@
-#define p 3.14
-
-int Perimetr(float r)
+int Perimetr(int r)
 {
     if (r <= 0) {
         return 1;
@@ -8,7 +6,7 @@ int Perimetr(float r)
         return 0;
 }
 
-int Ploshad(float r)
+int Ploshad(int r)
 {
     if (r <= 0) {
         return 1;
