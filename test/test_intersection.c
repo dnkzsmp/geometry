@@ -1,7 +1,7 @@
-#include "ctest.h"
+#include "Circle.h"
 #include "Figure.h"
 #include "Intersection.h"
-#include "Circle.h"
+#include "ctest.h"
 
 CTEST(good_name, its_circle)
 {
@@ -37,7 +37,7 @@ CTEST(that_intersection, intersection)
     int res1 = Intersection(2, 3, 2, 4, 3, 5);
     ASSERT_EQUAL(1, res1);
     int res2 = Intersection(1, 1, 4, 2, 2, 3);
-    ASSERT_EQUAL(1, res2);
+    ASSERT_EQUAL(0, res2);
     int res3 = Intersection(-2, 0, 1, 2, 5, 5);
     ASSERT_EQUAL(1, res3);
     int res4 = Intersection(2, 1, 2, 3, 4, 5);
