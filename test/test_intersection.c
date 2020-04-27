@@ -39,11 +39,13 @@ CTEST(that_intersection, intersection)
     int res2 = Intersection(1, 1, 4, 2, 2, 3);
     ASSERT_EQUAL(0, res2);
     int res3 = Intersection(-2, 0, 1, 2, 5, 5);
-    ASSERT_EQUAL(1, res3);
+    ASSERT_EQUAL(0, res3);
     int res4 = Intersection(2, 1, 2, 3, 4, 5);
     ASSERT_EQUAL(0, res4);
     int res5 = Intersection(1, 2, -1, 2, 4, 4);
     ASSERT_EQUAL(0, res5);
+    int res6 = Intersection(1, 1, 3, 3, 4, 1);
+    ASSERT_EQUAL(1, res6);
 }
 
 CTEST(good_radius, Circle)
