@@ -25,8 +25,7 @@ $(DIR_T)/main.o: test/main.c
 	gcc $(CPPFLAGS) -I thirdparty -c test/main.c -o $(DIR_T)/main.o
 
 $(DIR_T)/test_intersection.o: test/test_intersection.c
-	gcc $(CPPFLAGS) -I thirdparty -I src -c test/test_intersection.c -o $(DIR_T)/test_intersection.o -lm
-
+	gcc $(CPPFLAGS) -I thirdparty -I src -c test/test_intersection.c -o $(DIR_T)/test_intersection.o 
 $(TEST): $(DIR_T)/test_intersection.o $(DIR_T)/main.o
 	gcc $(CPPFLAGS) $(DIR_S)/Figure.o $(DIR_S)/Intersection.o $(DIR_S)/Circle.o  $(DIR_T)/test_intersection.o $(DIR_T)/main.o -o $(TEST) -lm
 
