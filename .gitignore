@@ -32,5 +32,6 @@
 *.app
 prog
 test
-/cmake-build-debug/
+.idea
+cmake-build-debug
 *.swp

@@ -1,7 +1,7 @@
 #ifndef CIRCLE_H
 #define CIRCLE_H
 
-float Ploshad(float r);
-float Perimetr(float r);
+int Ploshad(float r);
+int Perimetr(float r);
 
 #endif // CIRCLE_H
