@@ -1,6 +1,7 @@
 #include "ctest.h"
 #include "Figure.h"
 #include "Intersection.h"
+#include "Circle.h"
 
 CTEST(good_name, its_circle)
 {
@@ -43,4 +44,24 @@ CTEST(that_intersection, intersection)
     ASSERT_EQUAL(0, res4);
     int res5 = Intersection(1, 2, -1, 2, 4, 4);
     ASSERT_EQUAL(0, res5);
+}
+
+CTEST(good_radius, Circle)
+{
+    int res1_1 = Ploshad(3);
+    int res1_2 = Perimetr(3);
+    ASSERT_EQUAL(0, res1_1);
+    ASSERT_EQUAL(0, res1_2);
+}
+
+CTEST(bad_radius, Circle)
+{
+    int res1_1 = Ploshad(0);
+    int res1_2 = Perimetr(0);
+    ASSERT_EQUAL(1, res1_1);
+    ASSERT_EQUAL(1, res1_2);
+    int res2_1 = Ploshad(-1);
+    int res2_2 = Perimetr(-1);
+    ASSERT_EQUAL(1, res2_1);
+    ASSERT_EQUAL(1, res2_2);
 }
