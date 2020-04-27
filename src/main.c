@@ -2,6 +2,7 @@
 #include "Figure.h"
 #include "Intersection.h"
 #include <stdio.h>
+#define p 3.14
 
 int main()
 {
@@ -10,6 +11,8 @@ int main()
     float S1, S2;
     float x1, x2;
     float y1, y2;
+    int res1_1, res1_2;
+    int res2_1, res2_2;
     char name[15];
     printf("Название фигуры: ");
     scanf("%s", name);
@@ -18,30 +21,34 @@ int main()
         scanf("%f %f", &x1, &y1);
         printf("Радиус: \n");
         scanf("%f", &r1);
-        S1 = Ploshad(r1);
-        if (S1 == 1) {
+        res1_1 = Ploshad(r1);
+        if (res1_1 == 1) {
             printf("Неверный радиус!");
             return 0;
-        }
-        P1 = Perimetr(r1);
-        if (P1 == 1) {
+        } else
+            S1 = p * r1 * r1;
+        res1_2 = Perimetr(r1);
+        if (res1_2 == 1) {
             printf("Неверный радиус!");
             return 0;
-        }
+        } else
+            P1 = p * r1 * 2;
         printf("Координаты второй окружности: \n");
         scanf("%f %f", &x2, &y2);
         printf("Радиус: \n");
         scanf("%f", &r2);
-        S2 = Ploshad(r2);
-        if (S2 == 1) {
+        res2_1 = Ploshad(r2);
+        if (res2_1 == 1) {
             printf("Неверный радиус!");
             return 0;
-        }
-        P2 = Perimetr(r2);
-        if (P2 == 1) {
+        } else
+            S2 = p * r2 * r2;
+        res2_2 = Perimetr(r2);
+        if (res2_2 == 1) {
             printf("Неверный радиус!");
             return 0;
-        }
+        } else
+            P2 = p * r2 * 2;
     } else {
         printf("Ошибка ввода фигуры! Доступные фигуры: circle");
         return 0;
