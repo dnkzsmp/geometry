@@ -6,11 +6,11 @@
 
 int main()
 {
-    float r1, r2;
+    int r1, r2;
     float P1, P2;
     float S1, S2;
-    float x1, x2;
-    float y1, y2;
+    int x1, x2;
+    int y1, y2;
     int res1_1, res1_2;
     int res2_1, res2_2;
     char name[15];
@@ -18,9 +18,9 @@ int main()
     scanf("%s", name);
     if (Figure(name) == 0) {
         printf("Координаты первой окружности: \n");
-        scanf("%f %f", &x1, &y1);
+        scanf("%d %d", &x1, &y1);
         printf("Радиус: \n");
-        scanf("%f", &r1);
+        scanf("%d", &r1);
         res1_1 = Ploshad(r1);
         if (res1_1 == 1) {
             printf("Неверный радиус!");
@@ -34,9 +34,9 @@ int main()
         } else
             P1 = p * r1 * 2;
         printf("Координаты второй окружности: \n");
-        scanf("%f %f", &x2, &y2);
+        scanf("%d %d", &x2, &y2);
         printf("Радиус: \n");
-        scanf("%f", &r2);
+        scanf("%d", &r2);
         res2_1 = Ploshad(r2);
         if (res2_1 == 1) {
             printf("Неверный радиус!");
@@ -53,10 +53,10 @@ int main()
         printf("Ошибка ввода фигуры! Доступные фигуры: circle");
         return 0;
     }
-    printf("%s(%f, %f, %0.2f)\n", name, x1, y1, r1);
+    printf("%s(%d, %d, %d)\n", name, x1, y1, r1);
     printf("Площадь: %0.2f\n", S1);
     printf("Периметр: %0.2f\n\n", P1);
-    printf("%s(%f, %f, %0.2f)\n", name, x2, y2, r2);
+    printf("%s(%d, %d, %d)\n", name, x2, y2, r2);
     printf("Площадь: %0.2f\n", S2);
     printf("Периметр: %0.2f\n", P2);
     int peres = Intersection(x1, y1, x2, y2, r1, r2);
