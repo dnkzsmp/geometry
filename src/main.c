@@ -18,7 +18,14 @@ int main()
     scanf("%s", name);
     if (Figure(name) == 0) {
         printf("Координаты первой окружности: \n");
-        scanf("%d %d", &x1, &y1);
+        if (scanf("%d", &x1) != 1) {
+            printf("Координаты должны быть целыми!");
+            return 0;
+        }
+        if (scanf("%d", &y1) != 1) {
+            printf("Координаты должны быть целыми!");
+            return 0;
+        }
         printf("Радиус: \n");
         scanf("%d", &r1);
         res1_1 = Ploshad(r1);
@@ -34,7 +41,14 @@ int main()
         } else
             P1 = p * r1 * 2;
         printf("Координаты второй окружности: \n");
-        scanf("%d %d", &x2, &y2);
+        if (scanf("%d", &x2) != 1) {
+            printf("Координаты должны быть целыми!");
+            return 0;
+        }
+        if (scanf("%d", &y2) != 1) {
+            printf("Координаты должны быть целыми!");
+            return 0;
+        }
         printf("Радиус: \n");
         scanf("%d", &r2);
         res2_1 = Ploshad(r2);
